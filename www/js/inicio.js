@@ -117,6 +117,8 @@ inicio.insertaAutomovil=function(id,numero_economico,ruta,placas,conductor,fecha
         clase ='byellow';
     }else if(semaforo=='verde'){
         clase ='bgreen';
+    }else{
+        clase = 'bblue';
     }
     
     if(notificacion_servicio=='1'){
