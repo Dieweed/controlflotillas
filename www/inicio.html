@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Finvivir - Control de Flotillas</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" media="all"  type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
+    
+    
+     
+    
+    
+    
+    <!-- javascript's -->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/my-app.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/sha1.js"></script>
+    <!-- javascript del archivo en cuestion -->
+    <script src="js/inicio.js"></script>
+    
+    <!-- javascript de intel xdk -->
+    <script src="cordova.js"></script>          
+    <script src="js/app.js"></script>           
+    <script src="xdk/init-dev.js"></script> 
+       
+</head>
+
+<body>
+    
+
+    <!-- Vista -->
+    <div class="views" id="menu">
+    <script src="js/menu.js"></script>
+      <div class="view view-main">
+        <div class="pages navbar-fixed toolbar-fixed">
+          <div data-page="index" class="page">
+            <div class="navbar fondo-gris">
+              <div class="navbar-inner">
+                  <div class="col-xs-5 sinPadding">
+                      <div id="encabezadoEncuesta" class="lineHeight60px">
+                        <img src="imagenes/logo.png" class="maxHeigh sinMargin sinPadding" id="imgLogo">
+                      </div>
+                  </div>
+                  <div class="col-xs-6 text-12  negro sinPadding">
+                      <span class="col-xs-12 sinPadding" >Flotilla de Automóviles</span>
+                  </div>
+                  <div class="col-xs-1 right sinPadding sinMargin">
+                      <a href="#" class="link icon-only open-panel" data-panel="right"><i class="fa fa-bars"></i></a>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="page-content pagina" >
+                  <!-- Search Bar -->
+                  <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init sinMargin">
+                    <div class="searchbar-input">
+                      <input type="search" class="barra_buscadora" placeholder="Ingresa el número económico" onkeyup="">
+                        <a href="#" class="searchbar-clear"></a>
+                    </div>
+                  </form>   
+                <table class="table table-striped">
+                    <tbody id="gridAutomoviles" class="cuerpoTableBlue">
+                            
+                    </tbody>
+                </table>
+                
+            </div>
+                
+          
+              
+              
+          </div>
+        </div>
+      </div> 
+    </div>
+</body>
+</html>
+
