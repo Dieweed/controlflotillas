@@ -696,6 +696,13 @@ body.with-panel-right-reveal .panel-overlay {
     background-position: center center;
     max-width: 120px !important;
 }
+.bblue{
+    background-image: url(../imagenes/azul.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 120px !important;
+}
 .bgreen{
     background-image: url(../imagenes/verde.png);
     background-size: contain;
