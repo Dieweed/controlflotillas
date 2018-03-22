@@ -1,7 +1,7 @@
 var ingreso={};
     $(document).ready(function(){
         var today = new Date();
-        if(today.getDate() <= 30){
+        if(today.getDate() <= 3 && today.getDate() != almacenamiento.dameDia()){
             $.ajax({
             url:      dominio+"obtener-gestor",
             type:     'POST',
@@ -10,6 +10,7 @@ var ingreso={};
             success:	function(re){                 
                 console.log(re[0].nombre);
                 almacenamiento.guardarGestor(re[0].nombre);
+                almacenamiento.guardarDia(today.getDate());
             },
             error: function(re){             
                console.log(re);                

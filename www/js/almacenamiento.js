@@ -1354,3 +1354,11 @@ almacenamiento.guardarGestor=function(gestor){
 almacenamiento.dameGestor=function(){
     return localStorage.getItem("gestor");
 }
+
+almacenamiento.guardarDia=function(dia){
+     localStorage.setItem("dia",dia);
+}
+
+almacenamiento.dameDia=function(){
+    return localStorage.getItem("dia");
+}
