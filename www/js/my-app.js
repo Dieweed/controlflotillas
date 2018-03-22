@@ -410,7 +410,7 @@ function irA(peticion,flotilla,id,idAutomovil,servicio_id,redireccion){
              url='Entradas.html';
             break;
         case "Salidas":
-             url='Salidas.html';
+             url='salidas.html';
             break;
     }
     if(peticion!="salir"){
