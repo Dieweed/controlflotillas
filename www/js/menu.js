@@ -16,6 +16,23 @@
                             document.writeln('</div>');
                           document.writeln('</div>');
                         document.writeln('</li>');
+
+                        document.writeln('<li onclick="irA(\'Entradas\')">');  
+                          document.writeln('<div class="item-content">');
+                            document.writeln('<div class="item-inner">');
+                              document.writeln('<div class="item-title"><i class="fa fa-sign-in fa-2x">&nbsp;</i>Entradas de Inventario </div>');
+                            document.writeln('</div>');
+                          document.writeln('</div>');
+                        document.writeln('</li>');
+
+                        document.writeln('<li onclick="irA(\'Salidas\')">');  
+                          document.writeln('<div class="item-content">');
+                            document.writeln('<div class="item-inner">');
+                              document.writeln('<div class="item-title"><i class="fa fa-sign-out fa-2x">&nbsp;</i>Salidas de Inventario </div>');
+                            document.writeln('</div>');
+                          document.writeln('</div>');
+                        document.writeln('</li>');
+
     if(!(usua["tipo"]=='2'||usua["tipo"]=='3')){
                         document.writeln('<li onclick="irA(\'sincronizacion\')">');  
                           document.writeln('<div class="item-content">');

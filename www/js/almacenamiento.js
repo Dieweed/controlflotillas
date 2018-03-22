@@ -1289,3 +1289,68 @@ almacenamiento.dameTodoParaSincronizar=function(){
     return null;
 
 }
+
+almacenamiento.guardarArticulo=function(categoriaArticulo, costo, existencia, idInventario, idRegion, nombreArticulo, stock_maximo, stock_minimo){    
+    //obtenemos los autos almacenados
+    var articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+    var existe = true;
+    //comprobamos que el auto no este ya almacenado, si no esta lo agrega, y si ya esta no hacemos nada
+    $.each(articulos, function(i, item) {
+        if(item.idInventario==idInventario){ 
+            existe = false;
+        }
+    });
+    if(existe==true){
+        console.log("se agrego un articulo al almacenamiento interno: "+idInventario+" ->"+nombreArticulo);
+       //agregamos el nuevo auto
+        articulos.push({categoriaArticulo:categoriaArticulo, costo:costo, existencia:existencia, idInventario:idInventario, idRegion:idRegion, nombreArticulo:nombreArticulo, stock_maximo:stock_maximo, stock_minimo:stock_minimo});
+        //guardamos ahora todos los automoviles
+        localStorage.setItem("articulos", JSON.stringify(articulos));
+    }
+    
+}
+
+almacenamiento.dameArticulos=function(){
+    var articulos=localStorage.getItem("articulos");
+    if(articulos!=null){
+        eval("articulos="+articulos+";");
+        return articulos;
+    }
+    return null;
+}
+
+almacenamiento.seleccionaArticulo=function(articulo){
+    localStorage.setItem("articuloSeleccionado",JSON.stringify(articulo));
+}
+
+almacenamiento.dameArticuloSeleccionado=function(){
+    var articuloSeleccionado=localStorage.getItem("articuloSeleccionado");
+    if(articuloSeleccionado!=null){
+        eval("articuloSeleccionado="+articuloSeleccionado+";");
+        return articuloSeleccionado;
+    }//if
+    return null;
+}
+
+almacenamiento.dameArticulo=function(idArticulo){
+    var articulo=[];
+    var articulos=JSON.parse(localStorage.getItem("articulos"));
+    if(articulos!=null){
+        $.each(articulos, function(i, item) {
+            if(item.idInventario==idArticulo){
+                articulo.push({categoriaArticulo:item.categoriaArticulo, costo:item.costo, existencia:item.existencia, idInventario:item.idInventario, idRegion:item.idRegion, nombreArticulo:item.nombreArticulo, stock_maximo:item.stock_maximo, stock_minimo:item.stock_minimo});
+            }
+        });
+        return articulo[0];
+    }else{
+        return null;
+    }
+}
+
+almacenamiento.guardarGestor=function(gestor){
+    localStorage.setItem("gestor",gestor);
+}
+
+almacenamiento.dameGestor=function(){
+    return localStorage.getItem("gestor");
+}

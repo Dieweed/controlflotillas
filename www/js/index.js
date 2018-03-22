@@ -1,6 +1,21 @@
 var ingreso={};
     $(document).ready(function(){
-        
+        var today = new Date();
+        if(today.getDate() <= 30){
+            $.ajax({
+            url:      dominio+"obtener-gestor",
+            type:     'POST',
+            dataType: "json",
+            processData:true,                
+            success:	function(re){                 
+                console.log(re[0].nombre);
+                almacenamiento.guardarGestor(re[0].nombre);
+            },
+            error: function(re){             
+               console.log(re);                
+            }
+        });
+        }
     });
 
 ingreso.ingresar=function(){

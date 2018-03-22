@@ -7,6 +7,13 @@ var usuario='';
         //obtenemos el usuario firmado
         usuario = almacenamiento.dameUsuario();
         
+        var gestor = almacenamiento.dameGestor();
+        if(gestor != null && gestor != ''){
+            _mensaje("Atención", "FELICITACIONES AL GESTOR DEL MES " + gestor, "Entendido");
+            almacenamiento.guardarGestor('');
+        }
+    
+        
         console.log(inicio);
         //obtenemos los automoviles del usuario firmado
         //alert("dame autos del gestor"+usuario.id);
