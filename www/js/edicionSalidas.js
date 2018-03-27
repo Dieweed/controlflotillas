@@ -76,7 +76,7 @@ edicionSalidas.actualizarExistencia=function(){
                 existencias: parseFloat(articuloSeleccionado.existencia)- parseFloat($("#agr_existencia").val()),
                 fecha: $("#fecha_cambio").val(),
                 noFactura: 0,
-                costo: articuloSeleccionado.costo,
+                costo: 0,
                 cantidad_entradas: 0,
                 cantidad_salidas: parseFloat($("#agr_existencia").val()),
                 tipo: $("#tipo").val()
