@@ -49,27 +49,33 @@ edicionEntradas.cargarFormulario=function(){
 }
 
 edicionEntradas.actualizarExistencia=function(){
-
+    var fact = '';
+    var cost = 0;
+    
+    if($("#no_fact").val()!=""){
+        fact=$("#no_fact").val();
+    }
+    
+    if($("#costo").val()!=""){
+         if(isNaN(parseFloat($("#costo").val()))){
+            _mensaje("Atención","El costo debe tener un valor numérico","Entendido");
+            return null;
+        } else {
+            cost = parseFloat($("#costo").val())
+        }
+    }
+    
     if($("#agr_existencia").val()==""){
         _mensaje("Atención","Debe ingresar las existencias nuevas","Entendido");
         return null;
     }else if(isNaN(parseFloat($("#agr_existencia").val()))){
         _mensaje("Atención","Las existencias deben numericas","Entendido");
         return null;
-    }else if(parseFloat($("#agr_existencia").val())<= 0){
+    }else if(parseFloat($("#agr_existencia").val())< 0){
          _mensaje("Atención","Las existencias deben ser mayores a 0","Entendido");
         return null;
     }else if( (parseFloat($("#agr_existencia").val()) + parseFloat(articuloSeleccionado.existencia)) > parseFloat(articuloSeleccionado.stock_maximo)){
          _mensaje("Atención","Las existencias sobrepasan el límite permitido","Entendido");
-        return null;
-    }else if($("#no_fact").val()==""){
-         _mensaje("Atención","Debe ingresar el número de la factura","Entendido");
-        return null;
-    }else if($("#costo").val()==""){
-         _mensaje("Atención","Debe ingresar el costo del producto","Entendido");
-        return null;
-    }else if(isNaN(parseFloat($("#costo").val()))){
-        _mensaje("Atención","El costo debe tener un valor numérico","Entendido");
         return null;
     }else if($("#fecha_cambio").val()==""){
          _mensaje("Atención","Debe ingresar la fecha","Entendido");
@@ -84,8 +90,8 @@ edicionEntradas.actualizarExistencia=function(){
                 idInventario: articuloSeleccionado.idInventario,
                 existencias: parseFloat($("#agr_existencia").val()) + parseFloat(articuloSeleccionado.existencia),
                 fecha: $("#fecha_cambio").val(),
-                noFactura: $("#no_fact").val(),
-                costo: $("#costo").val(),
+                noFactura: fact,
+                costo: cost,
                 cantidad_entradas: parseFloat($("#agr_existencia").val()),
                 cantidad_salidas: 0,
                 tipo: $("#tipo").val()
