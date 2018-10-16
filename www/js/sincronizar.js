@@ -14,7 +14,6 @@ $(document).ready(function(){
 sincronizar.realizaSincronizacion=function(){
     //si no hay internet no sincronizamos
     
-    
     //obtenemos todos los automoviles
     //si no hay autos no sincronizamos
     sincronizacion = almacenamiento.dameTodoParaSincronizar();

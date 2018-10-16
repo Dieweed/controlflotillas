@@ -63,7 +63,7 @@ inicio.dameAutosDelGestor=function(gestor_id,numero_economico){
                 $.each(re, function(i, item) {
                     console.log(item);
                      //insertamos el html necesario para el automovil
-                    almacenamiento.guardarAutomovil(item.id,item.conductor,item.placas,item.numero_serie,item.numero_economico,item.id_gps,item.kilometraje,item.modelo_id,item.modelo,item.marca_id,item.marca,item.ruta_id,item.nombre,item.region_id,item.region,item.fecha_actualizacion,item.status,item.semaforo);
+                    almacenamiento.guardarAutomovil(item.id,item.conductor,item.placas,item.numero_serie,item.numero_economico,item.id_gps,item.kilometraje,item.modelo_id,item.modelo,item.marca_id,item.marca,item.ruta_id,item.nombre,item.region_id,item.region,item.fecha_actualizacion,item.status,item.semaforo, undefined, undefined, undefined, undefined, item.usuario_jcr_id, item.usuario_jcr2_id, item.usuario_director_id);
                     //inicio.insertaAutomovil(item.id, item.numero_economico,item.nombre,item.placas,item.conductor,item.fecha_actualizacion,item.semaforo);
                     
                     if(z==(cuantos-1)){
