@@ -6,13 +6,13 @@ var rutaDocumentos="http://avansys-admin.dyndns.org:8080/flotillasfinvivir/carga
 var palaSecr="ControlFlotillasFinvivir";
 */
 
-var dominio ="http://201.163.100.84:8080/flotillasfinvivir/app/";
-//var dominio ="http://192.168.1.20:8081/flotillasfinvivir/app/";
-var urlSistema ="http://201.163.100.84:8080/flotillasfinvivir/";
-//var urlSistema ="http://192.168.1.20:8081/flotillasfinvivir/";
+//var dominio ="http://201.163.100.84:8080/flotillasfinvivir/app/";
+var dominio ="http://192.168.1.20:8081/flotillasfinvivir/app/";
+//var urlSistema ="http://201.163.100.84:8080/flotillasfinvivir/";
+var urlSistema ="http://192.168.1.20:8081/flotillasfinvivir/";
 var descargaDocumentos="/storage/emulated/0/ControlDeFlotillas";
-var rutaDocumentos="http://201.163.100.84:8080/flotillasfinvivir/cargas/documentos/";
-//var rutaDocumentos="http://192.168.1.20:8081/flotillasfinvivir/cargas/documentos/";
+//var rutaDocumentos="http://201.163.100.84:8080/flotillasfinvivir/cargas/documentos/";
+var rutaDocumentos="http://192.168.1.20:8081/flotillasfinvivir/cargas/documentos/";
 var palaSecr="ControlFlotillasFinvivir";
 
 
