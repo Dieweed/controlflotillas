@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>Finvivir - Control de Flotillas</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" media="all"  type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
+    
+    
+     
+    
+    <!-- javascript's -->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+    <script src="js/app.js"></script>
+    <script src="js/my-app.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/sha1.js"></script>
+    <!-- javascript del archivo en cuestion -->
+    <script src="js/edicion-detalle.js"></script>
+    
+    <!-- javascript de intel xdk -->
+    <script src="cordova.js"></script>          
+    <script src="js/app.js"></script>           
+    <script src="xdk/init-dev.js"></script>     
+</head>
+
+<body>
+    
+    <!-- Vista -->
+    <div class="views">
+    <script src="js/menu.js"></script>
+      <div class="view view-main">
+        <div class="pages navbar-fixed toolbar-fixed">
+          <div data-page="index" class="page">
+            <div class="navbar fondo-gris">
+              <div class="navbar-inner">
+                  <div class="col-xs-5 sinPadding">
+                      <div id="encabezadoEncuesta" class="lineHeight60px">
+                        <img src="imagenes/logo.png" class="maxHeigh sinMargin sinPadding" id="imgLogo">
+                      </div>
+                  </div>
+                  <div class="col-xs-6 text-12 negro sinPadding">
+                      <span class="col-xs-8 sinPadding">Detalles</span><span class="numero_flotilla col-xs-4 sinPadding"></span>
+                  </div>
+                  <div class="col-xs-1 right sinPadding sinMargin">
+                      <a href="#" class="link icon-only open-panel" data-panel="right"><i class="fa fa-bars"></i></a>
+                  </div>
+              </div>
+            </div>
+              
+              <div class="page-content">
+                <div class="sinPadding">
+                    <div class="col-xs-12 marginTopBottom5px">
+                          <div class="col-xs-12 marginTopBottom5px">
+                              <select class="form-control txtDesa" id="componente_id">
+
+                              </select>
+                          </div>
+                          <div class="col-xs-12 marginTopBottom5px">
+                              <select class="form-control txtDesa" id="detalle_id">
+
+                              </select>
+                          </div>
+                          <div class="col-xs-12 marginTopBottom5px">
+                            <div class="input-group">
+                                <input type="text" class="form-control campoFechaDetalle" value="" id="fecha_detalle" name="fecha_detalle" readonly="readonly" placeholder="Fecha de Detalle">
+                                <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 marginTopBottom5px">
+                              <textarea class="form-control txtDesa" placeholder="Observaciones" id="observacion" name="observacion" placeholder="Observaciones"></textarea>
+                          </div>
+                          <div class="col-xs-12 marginTopBottom5px">
+                              <select class="form-control txtDesa" id="fue_reparado">
+                                      <option value="0"> Sin Reparar </option>
+                                      <option value="1"> Reparado </option>
+                              </select>
+                          </div>
+                          <div class="col-xs-12 marginTopBottom5px">
+                            <div class="input-group">
+                                <input type="text" class="form-control campoFechaReparacion" value="" id="fecha_reparacion" name="fecha_reparacion" disabled="disabled" placeholder="Fecha de Reparación">
+                                <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                          </div>
+                        
+                        
+                        <br>
+                      <div class="col-xs-12 marginTopBottom5px center-block">
+                          <input type="hidden" value="" id="id" />
+                          <input type="hidden" value="" id="sincronizableDetalle" />
+                          <div class="col-xs-3 col-xs-offset-2 sinPadding">
+                              <input type="hidden" value="" id="id" />
+                            <button class="btn btn-lg btn-success center-block botonGuardar btnDesa"  type="button" onclick="detalles.guardarDetalle()">
+                                <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>&nbsp;
+                            </button>
+                          </div>
+                          <div class="col-xs-3 col-xs-offset-2 sinPadding">
+                              <button class="btn btn-lg btn-danger center-block" type="button" onclick="irA('secciones','','','','','#detalles')">
+                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>&nbsp;
+                              </button>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>     
+    </div>
+    
+</body>
+</html>

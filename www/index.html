@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Finvivir - Control de Flotillas</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" media="all"  type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
+    
+    
+     
+    
+    <!-- javascript's -->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/my-app.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/sha1.js"></script>
+    <!-- javascript del archivo en cuestion -->
+    <script src="js/index.js"></script>
+
+    
+    <!-- javascript de intel xdk -->
+    <script src="cordova.js"></script>          
+    <script src="js/app.js"></script>           
+    <script src="xdk/init-dev.js"></script>     
+</head>
+
+<body>
+    <div class="view">
+      <div class="page">
+        <div class="page-content login-screen-content">
+          <div class="login-screen-title">
+            <div class="row">
+                <img src="imagenes/logo.png" class="col-80">
+            </div>
+          </div>
+          <form>
+            <div class="list-block">
+              <ul>
+                <li class="item-content sinPadding">
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <input type="text" id="email" class="text-center" placeholder="Correo electrónico" value=""><!--acontreras@finvivir.com.mx,jesc1323@gmail.com,mvilla@finvivir.com.mx, omoreno@finvivir.com.mx, csola@finvivir.com.mx-->
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content sinPadding">
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <input type="password" class="text-center" id="contrasena" placeholder="Contraseña" value=""><!--Hola1234**,Hola1234**,HOLA1234**,12345,Hola1234**, HOLA1234**-->
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list-block">
+              <ul>
+                  <li><a href="javascript:ingreso.ingresar();" class="btn btn-primary col-xs-6 col-xs-offset-3 marginTopBottom5px"><i class="fa fa-sing-in"></i>&nbsp;Ingresar</a></li>
+                  <li id="exitApp"><a href="javascript:exitAppFromBackground()"  class="btn btn-primary clear col-xs-6 col-xs-offset-3 marginTopBottom5px"><i class="fa fa-sing-out"></i>&nbsp;Salir</a></li>
+              </ul>
+              <div class="list-block-label clear paddingTop10px">
+                <p>Control de Flotillas</p>
+                <p id="cargando" class="hidden">Cargando información, espere un momento...</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+        $(document).ready(function(){
+            document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady() {
+                    document.getElementById('exitApp').addEventListener('click', function() {
+                        almacenamiento.limpiarTodo();
+                        navigator.app.exitApp();
+                        //navigator.notification.confirm("Are you sure you want to exit?", onConfirm, "Please Confirm", "Yes,No");
+                    });
+                }
+
+        });//function
+</script>
