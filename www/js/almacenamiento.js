@@ -80,7 +80,7 @@ almacenamiento.dameConfiguracion=function(){
     }//if
     return null;
 }//function
-almacenamiento.guardarAutomovil=function(id,conductor,placas,numero_serie,numero_economico,id_gps,kilometraje,modelo_id,modelo,marca_id,marca,ruta_id,ruta,region_id,region,fecha_actualizacion,status,semaforo,sincronizable,notificacion_servicio,proximo_servicio,frecuencia_servicio, usuario_jcr_id, usuario_jcr2_id, usuario_director_id){
+almacenamiento.guardarAutomovil=function(id,conductor,placas,numero_serie,numero_economico,id_gps,kilometraje,modelo_id,modelo,marca_id,marca,ruta_id,ruta,region_id,region,fecha_actualizacion,status,semaforo,sincronizable,notificacion_servicio,proximo_servicio,frecuencia_servicio){
     sincronizable = (sincronizable==0)?0:1;
     
     //obtenemos los autos almacenados
@@ -95,7 +95,7 @@ almacenamiento.guardarAutomovil=function(id,conductor,placas,numero_serie,numero
     if(existe==true){
         console.log("se agrego un auto al almacenamiento interno: "+id+" ->"+kilometraje+" notificacion: "+notificacion_servicio);
        //agregamos el nuevo auto
-        autos.push({id:id,conductor:conductor,placas:placas,numero_serie:numero_serie,numero_economico:numero_economico,id_gps:id_gps,kilometraje:kilometraje,modelo_id:modelo_id,modelo:modelo,marca_id:marca_id,marca:marca,ruta_id:ruta_id,ruta:ruta,region_id:region_id,region:region,fecha_actualizacion:fecha_actualizacion,status:status,semaforo:semaforo,sincronizable:sincronizable,notificacion_servicio:notificacion_servicio,proximo_servicio:proximo_servicio,frecuencia_servicio:frecuencia_servicio,usuario_jcr_id:usuario_jcr_id,usuario_jcr2_id:usuario_jcr2_id,usuario_director_id:usuario_director_id});
+        autos.push({id:id,conductor:conductor,placas:placas,numero_serie:numero_serie,numero_economico:numero_economico,id_gps:id_gps,kilometraje:kilometraje,modelo_id:modelo_id,modelo:modelo,marca_id:marca_id,marca:marca,ruta_id:ruta_id,ruta:ruta,region_id:region_id,region:region,fecha_actualizacion:fecha_actualizacion,status:status,semaforo:semaforo,sincronizable:sincronizable,notificacion_servicio:notificacion_servicio,proximo_servicio:proximo_servicio,frecuencia_servicio:frecuencia_servicio});
         //guardamos ahora todos los automoviles
         localStorage.setItem("autos", JSON.stringify(autos));
     }
@@ -230,7 +230,7 @@ almacenamiento.dameAutomovil=function(idAutomovil){
     if(automoviles!=null){
         $.each(automoviles, function(i, item) {
             if(item.id==idAutomovil){
-               auto.push({id:item.id,conductor:item.conductor,placas:item.placas,numero_serie:item.numero_serie,numero_economico:item.numero_economico,id_gps:item.id_gps,kilometraje:item.kilometraje,modelo_id:item.modelo_id,modelo:item.modelo,marca_id:item.marca_id,marca:item.marca,ruta_id:item.ruta_id,ruta:item.ruta,region_id:item.region_id,region:item.region,fecha_actualizacion:item.fecha_actualizacion,status:item.status,semaforo:item.semaforo,sincronizable:item.sincronizable,notificacion_servicio:item.notificacion_servicio,proximo_servicio:item.proximo_servicio,frecuencia_servicio:item.frecuencia_servicio,usuario_jcr_id:item.usuario_jcr_id, usuario_jcr2_id:item.usuario_jcr2_id, usuario_director_id:item.usuario_director_id});
+               auto.push({id:item.id,conductor:item.conductor,placas:item.placas,numero_serie:item.numero_serie,numero_economico:item.numero_economico,id_gps:item.id_gps,kilometraje:item.kilometraje,modelo_id:item.modelo_id,modelo:item.modelo,marca_id:item.marca_id,marca:item.marca,ruta_id:item.ruta_id,ruta:item.ruta,region_id:item.region_id,region:item.region,fecha_actualizacion:item.fecha_actualizacion,status:item.status,semaforo:item.semaforo,sincronizable:item.sincronizable,notificacion_servicio:item.notificacion_servicio,proximo_servicio:item.proximo_servicio,frecuencia_servicio:item.frecuencia_servicio});
             }
         });
         return auto[0];
@@ -1220,9 +1220,8 @@ almacenamiento.dameTodoParaSincronizar=function(){
     if(autos!=null){
         var ciclo = autos.length;
         var contador =0; 
-        
         $.each(autos, function(auto_i, auto_item){
-            sincronizacion.automoviles.push({id:auto_item.id,conductor:auto_item.conductor,placas:auto_item.placas,numero_serie:auto_item.numero_serie,numero_economico:auto_item.numero_economico,id_gps:auto_item.id_gps,kilometraje:auto_item.kilometraje,modelo_id:auto_item.modelo_id,modelo:auto_item.modelo,marca_id:auto_item.marca_id,marca:auto_item.marca,ruta_id:auto_item.ruta_id,ruta:auto_item.ruta,region_id:auto_item.region_id,region:auto_item.region,fecha_actualizacion:auto_item.fecha_actualizacion,status:auto_item.status,semaforo:auto_item.semaforo,sincronizable:auto_item.sincronizable,notificacion_servicio:auto_item.notificacion_servicio,proximo_servicio:auto_item.proximo_servicio,frecuencia_servicio:auto_item.frecuencia_servicio,usuario_jcr_id:auto_item.usuario_jcr_id,usuario_jcr2_id:auto_item.usuario_jcr2_id,usuario_director_id:auto_item.usuario_director_id,caracteristicas:[],mediciones:[],cambios:[],servicios:[],incidentes:[],detalles:[],usuario:[]});
+            sincronizacion.automoviles.push({id:auto_item.id,conductor:auto_item.conductor,placas:auto_item.placas,numero_serie:auto_item.numero_serie,numero_economico:auto_item.numero_economico,id_gps:auto_item.id_gps,kilometraje:auto_item.kilometraje,modelo_id:auto_item.modelo_id,modelo:auto_item.modelo,marca_id:auto_item.marca_id,marca:auto_item.marca,ruta_id:auto_item.ruta_id,ruta:auto_item.ruta,region_id:auto_item.region_id,region:auto_item.region,fecha_actualizacion:auto_item.fecha_actualizacion,status:auto_item.status,semaforo:auto_item.semaforo,sincronizable:auto_item.sincronizable,notificacion_servicio:auto_item.notificacion_servicio,proximo_servicio:auto_item.proximo_servicio,frecuencia_servicio:auto_item.frecuencia_servicio,caracteristicas:[],mediciones:[],cambios:[],servicios:[],incidentes:[],detalles:[],usuario:[]});
             //obtenemos las caracteristicas del automovil
             var caracteristicas_autos=JSON.parse(localStorage.getItem("caracteristicas_autos"));
             if(caracteristicas_autos!=null){
@@ -1362,40 +1361,4 @@ almacenamiento.guardarDia=function(dia){
 
 almacenamiento.dameDia=function(){
     return localStorage.getItem("dia");
-}
-
-almacenamiento.actualizarDatosVehiculo=function(id,status,kilometraje,idDirector,idJcr,idJcr2, idRuta, ruta, conductor){
-    console.log("actualizar vehículo***" )
-    //obtenemos los autos almacenados
-    var autos = JSON.parse(localStorage.getItem("autos")) || [];
-    var Actualizar=[];
-    var verificarNotificacion = 0;
-    //comprobamos que el auto no este ya almacenado, si no esta lo agrega, y si ya esta no hacemos nada
-    $.each(autos, function(i, item) {
-        if(item.id==id){
-            if(kilometraje!=item.kilometraje){
-                console.log("hubo cambios en el kilometraje");
-                //verificarNotificacion = 1;
-                //el cron se debe encargar de ajustar los estatus de la otificacion
-                if(parseInt(kilometraje)>parseInt(item.proximo_servicio)){
-                    console.log("entra en servicio retrasado");
-                    item.notificacion_servicio = 4;//si se modifico el kilometraje y sobrepasa el proximo servicio entonces lo pasamos a servicio rechazado
-                }
-            }
-            Actualizar.push({id:item.id,conductor:conductor,placas:item.placas,numero_serie:item.numero_serie,numero_economico:item.numero_economico,id_gps:item.id_gps,kilometraje:kilometraje,modelo_id:item.modelo_id,modelo:item.modelo,marca_id:item.marca_id,marca:item.marca,ruta_id:idRuta,ruta:ruta,region_id:item.region_id,region:item.region,fecha_actualizacion:item.fecha_actualizacion,status:status,semaforo:item.semaforo,notificacion_servicio:item.notificacion_servicio,proximo_servicio:item.proximo_servicio,frecuencia_servicio:item.frecuencia_servicio,usuario_jcr_id:idJcr,usuario_jcr2_id:idJcr2,usuario_director_id:idDirector});
-        }else{
-            Actualizar.push({id:item.id,conductor:item.conductor,placas:item.placas,numero_serie:item.numero_serie,numero_economico:item.numero_economico,id_gps:item.id_gps,kilometraje:item.kilometraje,modelo_id:item.modelo_id,modelo:item.modelo,marca_id:item.marca_id,marca:item.marca,ruta_id:item.ruta_id,ruta:item.ruta,region_id:item.region_id,region:item.region,fecha_actualizacion:item.fecha_actualizacion,status:item.status,semaforo:item.semaforo,notificacion_servicio:item.notificacion_servicio,proximo_servicio:item.proximo_servicio,frecuencia_servicio:item.frecuencia_servicio,usuario_jcr_id:item.usuario_jcr_id,usuario_jcr2_id:item.usuario_jcr2_id,usuario_director_id:item.usuario_director_id});
-        }
-    });
-    
-    //guardamos ahora todos los automoviles
-    localStorage.setItem("autos", JSON.stringify(Actualizar));
-    
-    //verificamos en base al nuevo kilometraje (si es que se modifico) si es necesario actualizar su notificacion
-    if(verificarNotificacion == 1){
-        //verificarProximoServicio(id)
-        //verificarNotificacion(id); 
-    }
-    
-    
 }
