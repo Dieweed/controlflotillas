@@ -6,13 +6,13 @@ var rutaDocumentos="http://avansys-admin.dyndns.org:8080/flotillasfinvivir/carga
 var palaSecr="ControlFlotillasFinvivir";
 */
 
-var dominio ="http://201.163.100.84:8080/flotillasfinvivir/app/";
-//var dominio ="http://192.168.1.20:8081/flotillasfinvivir/app/";
-var urlSistema ="http://201.163.100.84:8080/flotillasfinvivir/";
-//var urlSistema ="http://192.168.1.20:8081/flotillasfinvivir/";
+//var dominio ="http://201.163.100.84:8080/flotillasfinvivir/app/";
+var dominio ="http://192.168.1.20:8081/flotillasfinvivir/app/";
+//var urlSistema ="http://201.163.100.84:8080/flotillasfinvivir/";
+var urlSistema ="http://192.168.1.20:8081/flotillasfinvivir/";
 var descargaDocumentos="/storage/emulated/0/ControlDeFlotillas";
-var rutaDocumentos="http://201.163.100.84:8080/flotillasfinvivir/cargas/documentos/";
-//var rutaDocumentos="http://192.168.1.20:8081/flotillasfinvivir/cargas/documentos/";
+//var rutaDocumentos="http://201.163.100.84:8080/flotillasfinvivir/cargas/documentos/";
+var rutaDocumentos="http://192.168.1.20:8081/flotillasfinvivir/cargas/documentos/";
 var palaSecr="ControlFlotillasFinvivir";
 
 
@@ -351,7 +351,7 @@ function irA(peticion,flotilla,id,idAutomovil,servicio_id,redireccion){
                 return null;
             }
             //guardamos el kilometraje y el status del automovil
-            almacenamiento.guardarKilometrajeAutomovil(automovilSeleccionado.id,$("#status").val(),$("#kilometraje").val());
+            almacenamiento.actualizarDatosVehiculo(automovilSeleccionado.id,$("#status").val(),$("#kilometraje").val(),$("#director").val(),$("#jcr").val(),$("#jcr2").val(),$("#ruta").val(),$("#ruta option:selected").text(),$("#conductor").val());
             url='medicionLlantas.html';
             break;
         case "secciones":
@@ -626,7 +626,7 @@ function dameTodosLosAutosDelGestor(gestor_id){
                         itemm.placas = "";
                     }
                     //guardamos localmente todos los autos
-                    almacenamiento.guardarAutomovil(itemm.id,itemm.conductor,itemm.placas,itemm.numero_serie,itemm.numero_economico,itemm.id_gps,itemm.kilometraje,itemm.modelo_id,itemm.modelo,itemm.marca_id,itemm.marca,itemm.ruta_id,itemm.nombre,itemm.region_id,itemm.region,itemm.fecha_actualizacion,itemm.status,itemm.semaforo,0,itemm.notificacion_servicio,itemm.proximo_servicio,itemm.frecuencia_servicio);
+                    almacenamiento.guardarAutomovil(itemm.id,itemm.conductor,itemm.placas,itemm.numero_serie,itemm.numero_economico,itemm.id_gps,itemm.kilometraje,itemm.modelo_id,itemm.modelo,itemm.marca_id,itemm.marca,itemm.ruta_id,itemm.nombre,itemm.region_id,itemm.region,itemm.fecha_actualizacion,itemm.status,itemm.semaforo,0,itemm.notificacion_servicio,itemm.proximo_servicio,itemm.frecuencia_servicio, itemm.usuario_jcr_id, itemm.usuario_jcr2_id, itemm.usuario_director_id);
                     configuracion = almacenamiento.dameConfiguracion();
                     dameTodasLasMedicionesDelAuto(itemm.id,configuracion.verde_llantas,configuracion.amarillo_llantas);
                     dameTodosLosCambiosRegistrados(itemm.id);

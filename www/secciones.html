@@ -116,21 +116,36 @@
                                     </div>
                                     <div class="col-xs-12 margin2pxAuto">
                                         <input type="text" class="col-xs-6 form-control " id="region" value="" placeholder="Región" readonly="readonly">
-                                        <input type="text" class="col-xs-6 form-control " id="ruta" value="" placeholder="Ruta"  readonly="readonly">
+                                        <select id="ruta" class="col-xs-6 form-control ">
+                                        </select>
                                     </div>
                                     <div class="col-xs-12 margin2pxAuto">
-                                        <input type="text" class="col-xs-12 form-control " id="conductor" value="" placeholder="Conductor Habitual" maxlength="100" readonly="readonly">
+                                        <input type="text" class="col-xs-12 form-control " id="conductor" value="" placeholder="Conductor Habitual" maxlength="100">
                                     </div>
                                     <div class="col-xs-12 margin2pxAuto">
-                                        <select id="status" class="col-xs-6 form-control txtDesa" onchange="edicionAutomovil.actualizarAutomovil()">
+                                        <select id="director" class="col-xs-12 form-control ">
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-12 margin2pxAuto">
+                                        <select id="jcr" class="col-xs-12 form-control ">
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-12 margin2pxAuto">
+                                        <select id="jcr2" class="col-xs-12 form-control ">
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-12 margin2pxAuto">
+                                        <select disabled="disabled" id="status" class="col-xs-6 form-control txtDesa" onchange="edicionAutomovil.actualizarAutomovil()">
                                             <option value="1" selected="selected">Buen estado</option>
                                             <option value="0">Inactivo</option>
                                             <option value="2">En reparación</option>
+                                            <option value="3">Para venta</option>
+                                            <option value="6">Para reemplazar</option>
                                         </select>
                                         <input type="number" class="col-xs-6 form-control txtDesa" id="kilometraje" value="" placeholder="Kilometraje"  onblur="edicionAutomovil.actualizarAutomovil()" maxlength="11">
                                     </div>
                                     <div class="col-xs-12 margin2pxAuto">
-                                        <select id="select_notificacion_servicio" onchange="edicionAutomovil.notificacion(this)" class="col-xs-6 form-control txtDesa">
+                                        <select disabled="disabled" id="select_notificacion_servicio" onchange="edicionAutomovil.notificacion(this)" class="col-xs-6 form-control txtDesa">
                                             <option value="1">Para Servicio</option>
                                             <option value="2">En Servicio</option>
                                             <option value="3">En Circulación</option>

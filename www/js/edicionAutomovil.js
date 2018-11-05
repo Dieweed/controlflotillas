@@ -16,6 +16,71 @@ var usuario='';
         
         //cargamos la informacion en pantalla
         edicionAutomovil.cargarFormulario();
+        
+        $.ajax({
+            url:      dominio+"obtener-ruta",
+            type:     'POST',
+            dataType: "json",
+            processData:true,
+            data: { region_id : automovilSeleccionado.region_id, seleccion:automovilSeleccionado.ruta_id },
+            success:	function(re){ 
+                console.log(re);
+                $("#ruta").html(re);
+                
+            },
+            error: function(re){             
+               console.log(re);                
+            }
+        });
+        
+        $.ajax({
+            url:      dominio+"obtener-directores",
+            type:     'POST',
+            dataType: "json",
+            processData:true,
+            data: { seleccion:automovilSeleccionado.usuario_director_id },
+            success:	function(re){ 
+                console.log(re);
+                $("#director").html(re);
+                
+            },
+            error: function(re){             
+               console.log(re);                
+            }
+        });
+        
+        $.ajax({
+            url:      dominio+"obtener-jcrs",
+            type:     'POST',
+            dataType: "json",
+            processData:true,
+            data: { seleccion:automovilSeleccionado.usuario_jcr_id },
+            success:	function(re){ 
+                console.log(re);
+                $("#jcr").html(re);
+                
+            },
+            error: function(re){             
+               console.log(re);                
+            }
+        });
+        
+       $.ajax({
+            url:      dominio+"obtener-jcrs",
+            type:     'POST',
+            dataType: "json",
+            processData:true,
+            data: { seleccion:automovilSeleccionado.usuario_jcr2_id },
+            success:	function(re){ 
+                console.log(re);
+                $("#jcr2").html(re);
+                
+            },
+            error: function(re){             
+               console.log(re);                
+            }
+        });
+        
         //limpiamos las caracteristicas y las cargamos de localstorage
         $("#disponibles").html('');
         $("#seleccionadas").html('');
@@ -59,7 +124,6 @@ edicionAutomovil.cargarFormulario=function(){
     $("#vin").val(automovilSeleccionado.numero_economico);
     $("#placas").val(automovilSeleccionado.placas);
     $("#gps_id").val(automovilSeleccionado.id_gps);
-    $("#ruta").val(automovilSeleccionado.ruta);
     $("#region").val(automovilSeleccionado.region);
     $("#conductor").val(typeof automovilSeleccionado.conductor=='string'?automovilSeleccionado.conductor:'');
     $("#status").val(automovilSeleccionado.status);
@@ -173,12 +237,12 @@ edicionAutomovil.actualizarAutomovil=function(){
         _mensaje("Atención","Debe ingresar el kilometraje para el automóvil.","Entendido");
         $("#kilometraje").val(auto.kilometraje);
         return null;
-    }/*else if(parseFloat($("#kilometraje").val())<parseFloat(auto.kilometraje)){
+    }else if(parseFloat($("#kilometraje").val())<parseFloat(auto.kilometraje)){
          _mensaje("Atención","El kilometraje que se ingresó debe ser mayor o igual al que ya esta almacenado.","Entendido");
         $("#kilometraje").val(auto.kilometraje);
         return null;
-    }*/else{
-        almacenamiento.guardarKilometrajeAutomovil(automovilSeleccionado.id,$("#status").val(),$("#kilometraje").val());
+    }else{        
+        almacenamiento.actualizarDatosVehiculo(automovilSeleccionado.id,$("#status").val(),$("#kilometraje").val(),$("#director").val(),$("#jcr").val(),$("#jcr2").val(),$("#ruta").val(),$("#ruta option:selected").text(),$("#conductor").val());
     }
     
 }
